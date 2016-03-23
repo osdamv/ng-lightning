@@ -109,6 +109,13 @@ gulp.task('tdd', gulp.series('test:clean-build', function tdd_impl(done) {
   gulp.watch([PATHS.spec, PATHS.templates], gulp.series('test:build'));
 }));
 
+gulp.task('coveralls', function() {
+  var coveralls = require('gulp-coveralls');
+
+  return gulp.src('coverage/**/lcov.info')
+    .pipe(coveralls());
+});
+
 gulp.task('prepublish', gulp.series('build', function prepublish_impl() {
   return gulp.src(['package.json', '*.md', 'LICENSE'])
     .pipe(gulp.dest(BUILD));

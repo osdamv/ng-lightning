@@ -12,9 +12,10 @@ describe('Badge Component', () => {
   it('should render the badge element with default class', testAsync((fixture: ComponentFixture<TestComponent>) => {
     fixture.detectChanges();
 
-    const badge = getBadgeElement(fixture.nativeElement);
-    expect(badge).toBeDefined();
-    expect(badge.classList.toString()).toEqual('slds-badge');
+    fixture.whenStable().then(() => {
+      const badge = getBadgeElement(fixture.nativeElement);
+      expect(badge).toHaveCssClass('slds-badge');
+    });
   }, `<ngl-badge></ngl-badge>`));
 
   it('should have the appropriate classes for the selected type', testAsync((fixture: ComponentFixture<TestComponent>) => {
