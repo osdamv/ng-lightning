@@ -73,7 +73,7 @@ function startKarmaServer(isTddMode, done) {
   if (argv.logLevel) config.logLevel = argv.logLevel;
 
   var karmaServer = require('karma').Server;
-  new karmaServer(config, done).start();
+  new karmaServer(config).start();
 }
 
 gulp.task('test:clean', function() {
