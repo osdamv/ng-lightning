@@ -72,6 +72,7 @@ function startKarmaServer(isTddMode, done) {
   var config = {configFile: __dirname + '/karma.conf.js', singleRun: !isTddMode, autoWatch: isTddMode};
   if (argv.logLevel) config.logLevel = argv.logLevel;
 
+  var karmaServer = require('karma').Server;
   var server = new karmaServer(config);
   if (!isTddMode) {
     server.on('run_complete', function() {
