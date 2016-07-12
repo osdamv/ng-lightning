@@ -50,7 +50,7 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       template: '!!jade!' + path.resolve(__dirname, 'index.jade'),
-      baseHref: isProduction ? '/ng-lightning/' : '/',
+      baseHref: '/',
     }),
     new webpack.DefinePlugin({
       __ENV__: JSON.stringify({
