@@ -79,10 +79,10 @@ module.exports = function(config) {
 
     coverageReporter: {
       dir: 'coverage/',
-      reporters: [{type: 'text-summary'}, {type: 'html'}],
+      reporters: isTravis ? 'lcovonly' : [{type: 'text-summary'}, {type: 'html'}],
     },
 
-    reporters: isTravis ? ['dots'] : ['progress', 'coverage'],
+    reporters: isTravis ? ['dots', 'coverage', 'coveralls'] : ['progress', 'coverage'],
     port: isTravis ? 9876 : 23011,
     colors: true,
     logLevel: config.LOG_INFO,
