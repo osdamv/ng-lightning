@@ -79,7 +79,7 @@ module.exports = function(config) {
 
     coverageReporter: {
       dir: 'coverage/',
-      reporters: isTravis ? 'lcovonly' : [{type: 'text-summary'}, {type: 'html'}],
+      reporters: isTravis ? { type: 'in-memory' } : [{type: 'text-summary'}, {type: 'html'}],
     },
 
     reporters: isTravis ? ['dots', 'coverage', 'coveralls'] : ['progress', 'coverage'],

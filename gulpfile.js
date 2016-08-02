@@ -88,6 +88,11 @@ function startKarmaServer(isTddMode, done) {
 
   var karmaServer = require('karma').Server;
   var server = new karmaServer(config, done);
+
+  server.on('coverage_complete', function (browser, coverageReport) {
+    console.log('Covrage report: ', browser, coverageReport)
+  });
+
   server.start();
 
   return server;
