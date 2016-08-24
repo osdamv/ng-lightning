@@ -1,4 +1,4 @@
-/*! Lightning Design System 2.0.2 */
+/*! Lightning Design System 2.0.3 */
 /*!
  * Copyright (c) 2015, salesforce.com, inc. All rights reserved.
  *
@@ -132,6 +132,7 @@ figure {
   margin: 1em 40px; }
 
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
@@ -191,6 +192,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -432,6 +435,24 @@ img {
 
 .slds-timeline__media--task:before {
   background: #4bc076; }
+
+.slds-badge {
+  background-color: #e0e5ee;
+  padding: 0.25rem 0.5rem;
+  border-radius: 15rem;
+  font-size: 0.625rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
+  color: #16325c;
+  vertical-align: middle;
+  white-space: nowrap; }
+
+.slds-badge + .slds-badge {
+  margin-left: 0.5rem; }
+
+.slds-badge:empty {
+  padding: 0; }
 
 .slds-breadcrumb .slds-list__item, .slds-breadcrumb__item {
   position: relative; }
@@ -2287,9 +2308,6 @@ a.slds-button--inverse:focus {
 .slds-icon-text-error {
   fill: #c23934; }
 
-.slds-icon-text-error {
-  fill: #c23934; }
-
 .slds-icon--x-small {
   line-height: 1;
   width: 1rem;
@@ -2342,6 +2360,51 @@ a.slds-button--inverse:focus {
 
 .slds-card__tile {
   margin-top: 0.5rem; }
+
+.slds-form-element {
+  position: relative; }
+
+.slds-form-element__helper {
+  font-size: 0.75rem; }
+
+.slds-form-element__label {
+  display: inline-block;
+  color: #54698d;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-right: 0.75rem;
+  margin-bottom: 0.25rem; }
+
+.slds-form-element__label:empty {
+  margin: 0; }
+
+.slds-form-element__control .slds-radio,
+.slds-form-element__control .slds-checkbox {
+  display: block; }
+
+.slds-form-element__icon {
+  display: inline-block;
+  position: relative; }
+
+.slds-form-element__help {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  display: block; }
+
+.slds-form-element__static {
+  display: inline-block;
+  line-height: 1.875rem;
+  min-height: calc(1.875rem + 2px); }
+
+.slds-form-element__static.slds-text-longform {
+  line-height: 1.5; }
+
+.slds-required {
+  color: #c23934;
+  margin: 0 0.125rem; }
+
+.slds-has-error .slds-form-element__help {
+  color: #c23934; }
 
 .slds-input {
   background-color: white;
@@ -2433,6 +2496,18 @@ a.slds-button--inverse:focus {
   -ms-flex-item-align: center;
       align-self: center; }
 
+.slds-has-error .slds-input {
+  background-color: white;
+  border-color: #c23934;
+  box-shadow: #c23934 0 0 0 1px inset;
+  background-clip: padding-box; }
+
+.slds-has-error .slds-input:focus, .slds-has-error .slds-input:active {
+  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2; }
+
+.slds-has-error .slds-input__icon {
+  fill: #c23934; }
+
 .slds-textarea {
   background-color: white;
   color: #16325c;
@@ -2460,6 +2535,15 @@ a.slds-button--inverse:focus {
 
 .slds-textarea[disabled]:focus, .slds-textarea[disabled]:active, .slds-textarea.slds-is-disabled:focus, .slds-textarea.slds-is-disabled:active {
   box-shadow: none; }
+
+.slds-has-error .slds-textarea {
+  background-color: white;
+  border-color: #c23934;
+  box-shadow: #c23934 0 0 0 1px inset;
+  background-clip: padding-box; }
+
+.slds-has-error .slds-textarea:focus, .slds-has-error .slds-textarea:active {
+  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2; }
 
 .slds-radio {
   display: inline-block; }
@@ -2850,6 +2934,15 @@ a.slds-button--inverse:focus {
   border-top: 5px solid #061c3f;
   bottom: calc((1.75rem / 2) - 6px); }
 
+.slds-has-error .slds-select {
+  background-color: white;
+  border-color: #c23934;
+  box-shadow: #c23934 0 0 0 1px inset;
+  background-clip: padding-box; }
+
+.slds-has-error .slds-select:focus, .slds-has-error .slds-select:active {
+  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2; }
+
 .slds-checkbox--button-group {
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -2982,81 +3075,6 @@ a.slds-button--inverse:focus {
   float: right;
   margin-top: 0;
   margin-left: 0.5rem; }
-
-.slds-form-element {
-  position: relative; }
-
-.slds-form-element__helper {
-  font-size: 0.75rem; }
-
-.slds-form-element__label {
-  display: inline-block;
-  color: #54698d;
-  font-size: 0.75rem;
-  line-height: 1.5;
-  margin-right: 0.75rem;
-  margin-bottom: 0.25rem; }
-
-.slds-form-element__label:empty {
-  margin: 0; }
-
-.slds-form-element__control .slds-radio,
-.slds-form-element__control .slds-checkbox {
-  display: block; }
-
-.slds-form-element__icon {
-  display: inline-block;
-  position: relative; }
-
-.slds-form-element__help {
-  font-size: 0.75rem;
-  margin-top: 0.5rem;
-  display: block; }
-
-.slds-form-element__static {
-  display: inline-block;
-  line-height: 1.875rem;
-  min-height: calc(1.875rem + 2px); }
-
-.slds-form-element__static.slds-text-longform {
-  line-height: 1.5; }
-
-.slds-required {
-  color: #c23934;
-  margin: 0 0.125rem; }
-
-.slds-has-error .slds-input {
-  background-color: white;
-  border-color: #c23934;
-  box-shadow: #c23934 0 0 0 1px inset;
-  background-clip: padding-box; }
-
-.slds-has-error .slds-input:focus, .slds-has-error .slds-input:active {
-  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2; }
-
-.slds-has-error .slds-textarea {
-  background-color: white;
-  border-color: #c23934;
-  box-shadow: #c23934 0 0 0 1px inset;
-  background-clip: padding-box; }
-
-.slds-has-error .slds-textarea:focus, .slds-has-error .slds-textarea:active {
-  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2; }
-
-.slds-has-error .slds-select {
-  background-color: white;
-  border-color: #c23934;
-  box-shadow: #c23934 0 0 0 1px inset;
-  background-clip: padding-box; }
-
-.slds-has-error .slds-select:focus, .slds-has-error .slds-select:active {
-  box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #0070D2; }
-
-.slds-has-error .slds-form-element__help {
-  color: #c23934; }
-
-.slds-has-error .slds-input__icon {
-  fill: #c23934; }
 
 @media (min-width: 48em) {
   .slds-form--horizontal {
@@ -4431,10 +4449,10 @@ a.slds-button--inverse:focus {
   margin-left: 0.5rem; }
 
 .slds-modal__close {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   position: absolute;
-  top: -3rem;
+  top: -2.5rem;
   right: -0.5rem; }
 
 @media (min-width: 48em) {
@@ -4795,6 +4813,7 @@ a.slds-button--inverse:focus {
 .slds-tabs--path__stage {
   display: block;
   transition: transform 0.2s linear;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden; }
 
 .slds-tabs--path__title {
@@ -5669,24 +5688,6 @@ a.slds-button--inverse:focus {
 .slds-avatar--empty {
   border: 1px dashed #d8dde6; }
 
-.slds-badge {
-  background-color: #e0e5ee;
-  padding: 0.25rem 0.5rem;
-  border-radius: 15rem;
-  font-size: 0.625rem;
-  line-height: 1.25;
-  text-transform: uppercase;
-  letter-spacing: 0.0625em;
-  color: #16325c;
-  vertical-align: middle;
-  white-space: nowrap; }
-
-.slds-badge + .slds-badge {
-  margin-left: 0.5rem; }
-
-.slds-badge:empty {
-  padding: 0; }
-
 .slds-table {
   background-color: white; }
 
@@ -5967,7 +5968,9 @@ th.slds-is-sortable:hover .slds-button {
     text-align: right; }
   .slds-max-medium-table--stacked-horizontal td:before {
     float: left;
-    margin-top: 0.125rem; } }
+    margin-top: 0.125rem; }
+  .slds-max-medium-table--stacked-horizontal .slds-truncate {
+    max-width: 100%; } }
 
 .slds-tree-container,
 .slds-tree_container {
@@ -7542,16 +7545,30 @@ th.slds-is-sortable:hover .slds-button {
   font-size: 1rem; }
 
 .slds-section__title-action {
-  cursor: pointer; }
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  background: #f4f6f9;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  color: currentColor;
+  font-size: inherit;
+  padding: 0 0.5rem; }
+
+.slds-section__title-action:hover, .slds-section__title-action:focus, .slds-section__title-action:active {
+  background: #eef1f6;
+  color: inherit; }
 
 .slds-section__content {
   visibility: hidden;
   opacity: 0; }
 
-.slds-section .slds-button__icon {
+.slds-section__title-action-icon {
   transform: rotate(-90deg); }
 
-.slds-section.slds-is-open .slds-button__icon {
+.slds-section.slds-is-open .slds-section__title-action-icon {
   transform: rotate(0deg);
   transform-origin: 45%; }
 
