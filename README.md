@@ -26,6 +26,12 @@ If you use **SystemJS** to load your files, you may want to use our bundle file 
 <script src="https://unpkg.com/ng-lightning@x.x.x/ng-lightning.bundle.js"></script>
 ```
 
+It is also needed include the styles of Salesforce Lightning Design System, by npm 
+
+```bash 
+npm install @salesforce-ux/design-system --save
+```
+
 #### IE11 support
 Unfortunately, IE11 does not support two important features.
 
